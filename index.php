@@ -45,7 +45,6 @@ $contacts = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <tr>
                 <th scope="col">Name</th>
                 <th scope="col">Phone</th>
-                <th scope="col">Email</th>
                 <th scope="col">Address</th>
                 <th scope="col">Actions</th>
             </tr>
@@ -53,9 +52,8 @@ $contacts = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <tbody>
             <?php foreach ($contacts as $contact): ?>
                 <tr>
-                    <td><?php echo htmlspecialchars($contact['name']); ?></td>
+                    <td><?php echo htmlspecialchars($contact['NAME']); ?></td>
                     <td><?php echo htmlspecialchars($contact['phone']); ?></td>
-                    <td><?php echo htmlspecialchars($contact['email']); ?></td>
                     <td><?php echo htmlspecialchars($contact['address']); ?></td>
                     <td>
                         <a href="edit.php?id=<?php echo $contact['id']; ?>" class="btn btn-warning btn-sm">Edit</a>
