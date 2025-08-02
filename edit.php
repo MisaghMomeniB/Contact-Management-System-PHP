@@ -81,9 +81,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body { font-family: Arial, sans-serif; }
-        .container { margin-top: 30px; }
-        .form-group { margin-bottom: 15px; }
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            margin-top: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
     </style>
 </head>
 <body>
@@ -108,19 +116,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <form method="POST" action="edit.php?id=<?php echo $id; ?>">
         <div class="form-group">
             <label for="name">Name <span class="text-danger">*</span></label>
-            <input type="text" class="form-control" id="name" name="name" value="<?php echo htmlspecialchars($name); ?>" required>
+            <input type="text" class="form-control" id="name" name="name" value="<?php echo htmlspecialchars($name); ?>"
+                   required>
         </div>
         <div class="form-group">
             <label for="phone">Phone</label>
-            <input type="text" class="form-control" id="phone" name="phone" value="<?php echo htmlspecialchars($phone); ?>">
+            <input type="text" class="form-control" id="phone" name="phone"
+                   value="<?php echo htmlspecialchars($phone); ?>">
         </div>
-<!--        <div class="form-group">-->
-<!--            <label for="email">Email</label>-->
-<!--            <input type="email" class="form-control" id="email" name="email" value="--><?php //echo htmlspecialchars($email); ?><!--">-->
-<!--        </div>-->
+        <!--        <div class="form-group">-->
+        <!--            <label for="email">Email</label>-->
+        <!--            <input type="email" class="form-control" id="email" name="email" value="-->
+        <?php //echo htmlspecialchars($email); ?><!--">-->
+        <!--        </div>-->
         <div class="form-group">
             <label for="address">Address</label>
-            <textarea class="form-control" id="address" name="address" rows="4"><?php echo htmlspecialchars($address); ?></textarea>
+            <textarea class="form-control" id="address" name="address"
+                      rows="4"><?php echo htmlspecialchars($address); ?></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Update Contact</button>
         <a href="index.php" class="btn btn-secondary">Back to List</a>
