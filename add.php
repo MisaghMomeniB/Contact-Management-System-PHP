@@ -3,7 +3,7 @@
 require_once 'config.php';
 
 // Initialize variables
-$name = $phone = $email = $address = '';
+$name = $phone = $address = '';
 $errors = [];
 $success = '';
 
@@ -12,16 +12,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Get form data
     $name = trim($_POST['name'] ?? '');
     $phone = trim($_POST['phone'] ?? '');
-    $email = trim($_POST['email'] ?? '');
     $address = trim($_POST['address'] ?? '');
 
     // Validation
     if (empty($name)) {
         $errors[] = 'Name is required.';
     }
-    if (!empty($email) && !filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $errors[] = 'Invalid email format.';
-    }
+//    if (!empty($email) && !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+//        $errors[] = 'Invalid email format.';
+//    }
 
     // If no errors, insert into database
     if (empty($errors)) {
@@ -98,11 +97,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <input type="text" class="form-control" id="phone" name="phone"
                    value="<?php echo htmlspecialchars($phone); ?>">
         </div>
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" class="form-control" id="email" name="email"
-                   value="<?php echo htmlspecialchars($email); ?>">
-        </div>
+<!--        <div class="form-group">-->
+<!--            <label for="email">Email</label>-->
+<!--            <input type="email" class="form-control" id="email" name="email"-->
+<!--                   value="--><?php //echo htmlspecialchars($email); ?><!--">-->
+<!--        </div>-->
         <div class="form-group">
             <label for="address">Address</label>
             <textarea class="form-control" id="address" name="address"
