@@ -45,6 +45,7 @@ $contacts = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <tr>
                 <th scope="col">Name</th>
                 <th scope="col">Phone</th>
+                <th scope="col">Email</th>
                 <th scope="col">Address</th>
                 <th scope="col">Actions</th>
             </tr>
