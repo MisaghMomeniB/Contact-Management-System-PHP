@@ -29,7 +29,7 @@ try {
 
     $name = $contact['NAME'];
     $phone = $contact['phone'];
-//    $email = $contact['email'];
+    //    $email = $contact['email'];
     $address = $contact['address'];
 } catch (PDOException $e) {
     $errors[] = 'Error fetching contact: ' . $e->getMessage();
@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Get form data
     $name = trim($_POST['name'] ?? '');
     $phone = trim($_POST['phone'] ?? '');
-//    $email = trim($_POST['email'] ?? '');
+    //    $email = trim($_POST['email'] ?? '');
     $address = trim($_POST['address'] ?? '');
 
     // Validation
@@ -74,6 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -94,52 +95,55 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     </style>
 </head>
+
 <body>
-<div class="container">
-    <h2 class="text-center mb-4">Edit Contact</h2>
+    <div class="container">
+        <h2 class="text-center mb-4">Edit Contact</h2>
 
-    <!-- Display success or error messages -->
-    <?php if (!empty($success)): ?>
-        <div class="alert alert-success" role="alert">
-            <?php echo htmlspecialchars($success); ?>
-        </div>
-    <?php endif; ?>
-    <?php if (!empty($errors)): ?>
-        <div class="alert alert-danger" role="alert">
-            <?php foreach ($errors as $error): ?>
-                <p><?php echo htmlspecialchars($error); ?></p>
-            <?php endforeach; ?>
-        </div>
-    <?php endif; ?>
+        <!-- Display success or error messages -->
+        <?php if (!empty($success)): ?>
+            <div class="alert alert-success" role="alert">
+                <?php echo htmlspecialchars($success); ?>
+            </div>
+        <?php endif; ?>
+        <?php if (!empty($errors)): ?>
+            <div class="alert alert-danger" role="alert">
+                <?php foreach ($errors as $error): ?>
+                    <p><?php echo htmlspecialchars($error); ?></p>
+                <?php endforeach; ?>
+            </div>
+        <?php endif; ?>
 
-    <!-- Contact form -->
-    <form method="POST" action="edit.php?id=<?php echo $id; ?>">
-        <div class="form-group">
-            <label for="name">Name <span class="text-danger">*</span></label>
-            <input type="text" class="form-control" id="name" name="name" value="<?php echo htmlspecialchars($name); ?>"
-                   required>
-        </div>
-        <div class="form-group">
-            <label for="phone">Phone</label>
-            <input type="text" class="form-control" id="phone" name="phone"
-                   value="<?php echo htmlspecialchars($phone); ?>">
-        </div>
-        <!--        <div class="form-group">-->
-        <!--            <label for="email">Email</label>-->
-        <!--            <input type="email" class="form-control" id="email" name="email" value="-->
-        <?php //echo htmlspecialchars($email); ?><!--">-->
-        <!--        </div>-->
-        <div class="form-group">
-            <label for="address">Address</label>
-            <textarea class="form-control" id="address" name="address"
-                      rows="4"><?php echo htmlspecialchars($address); ?></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Update Contact</button>
-        <a href="index.php" class="btn btn-secondary">Back to List</a>
-    </form>
-</div>
+        <!-- Contact form -->
+        <form method="POST" action="edit.php?id=<?php echo $id; ?>">
+            <div class="form-group">
+                <label for="name">Name <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="name" name="name" value="<?php echo htmlspecialchars($name); ?>"
+                    required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="text" class="form-control" id="phone" name="phone"
+                    value="<?php echo htmlspecialchars($phone); ?>">
+            </div>
+            <!--        <div class="form-group">-->
+            <!--            <label for="email">Email</label>-->
+            <!--            <input type="email" class="form-control" id="email" name="email" value="-->
+            <?php //echo htmlspecialchars($email); 
+            ?><!--">-->
+            <!--        </div>-->
+            <div class="form-group">
+                <label for="address">Address</label>
+                <textarea class="form-control" id="address" name="address"
+                    rows="4"><?php echo htmlspecialchars($address); ?></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Update Contact</button>
+            <a href="index.php" class="btn btn-secondary">Back to List</a>
+        </form>
+    </div>
 
-<!-- Bootstrap 5 JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
